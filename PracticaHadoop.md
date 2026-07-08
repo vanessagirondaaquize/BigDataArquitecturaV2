@@ -26,13 +26,12 @@ Todo el contenido se ejecutara en codespace de github.
 
 
 ### Error al subir cambios
-
-$ git add . && git commit -m "update" && git push origin master
-error: failed to push some refs to 'https://github.com/vanessagirondaaquize/BigDataArquitecturaV2'
-hint: Updates were rejected because the remote contains work that you do not
-hint: have locally. This is usually caused by another repository pushing to
-hint: the same ref. If you want to integrate the remote changes, use
-hint: 'git pull' before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-$ git push origin master --force
-$ git add . && git commit -m "update" && git push origin master
+```    $ git add . && git commit -m "update" && git push origin master     ``` <br>
+```    error: failed to push some refs to xxxxxxxx ``` <br>
+```    hint: Updates were rejected because the remote contains work that you do not``` <br>
+```    hint: have locally. This is usually caused by another repository pushing to``` <br>
+```    hint: the same ref. If you want to integrate the remote changes, use``` <br>
+```    hint: 'git pull' before pushing again.``` <br>
+```    hint: See the 'Note about fast-forwards' in 'git push --help' for details.``` <br>
+```    $ git push origin master --force``` <br>
+```    $ git add . && git commit -m "update" && git push origin master``` <br>
