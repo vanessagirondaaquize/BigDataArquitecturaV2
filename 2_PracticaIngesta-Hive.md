@@ -72,16 +72,16 @@ En el terminal de hive-server ejecutamos lo siguiente para crear las tablas. <br
 En el terminal de hive-server ejecutamos
 ```     >_ hive     ``` <br> 
 ```     >_ USE retail_db;         ```   <br> 
-SELECT 
+```     >_SELECT 
     p.product_name,
     SUM(oi.quantity * oi.list_price) AS total_ventas
 FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.product_name
 ORDER BY total_ventas DESC
-LIMIT 10;
+LIMIT 10; ```   <br> 
 
-#### ----------------------------- PRACTICA 1  Computo Monolítico --------------------------------------## 
+#### ----------------------------- PRACTICA 2  -------------------------------------## 
 
 1 Descargar un set de datos en formato csv
 
@@ -89,7 +89,7 @@ LIMIT 10;
 
 3 Importar la base de datos con la herramienta adminer
 
-#### ---------------------------- PRACTICA 2  Computo distribuido --------------------------------------##
+#### ---------------------------- PRACTICA 3 --------------------------------------##
 
 1 Importar la base de datos escogida a hdfs utilizando sqoop. Ayuda dentro de datanode
 ```     >_ sh /datanode/scripts/sqoop/script_sqoop_textfile.sh    ``` <br> 
@@ -99,46 +99,3 @@ LIMIT 10;
 ```     >_ hive     ``` <br> 
 ```     >_ select ... groupby     ``` <br> 
 
-#### ---------------------------- PRACTICA 3  AJUSTES --------------------------------------
-1 Copiamos el README.md nueva a su repositorio 
-
-2 Hacer que mysql tenga un ip fijo
-
-     - Adicionar a docker-compse.yml
-         networks:
-            net_pet:
-                ipv4_address: 172.27.1.15
-     - Recompilar el datanode 
-```     >_ docker compose down mysql``` <br> 
-```     >_ docker compose up -d --build mysql``` <br> 
-     - Adicionar a script_sqoop_textfile.sh
-     sqoop import \
-            --connect "jdbc:mysql://mysql:3306/retail_db" \
-            --username=root \
-            --password=root \
-            --table customers \
-            --as-textfile \
-            --target-dir=/user/datapath/datasets/customers \
-            --delete-target-dir > /tmp/log_customer.log
-
-
-#### ---------------------------- PRACTICA 4  Base de datos persistente --------------------------------------
-
-1 Utilizamos la herramienta https://sqlizer.io/ para convertir una base con la que trabajar para convertir a un archivo nombre.sql
-
-2 Con el archivo nombre.sql adicionamos 
-```     >_ CREATE DATABASE bd_vanessa;``` <br> 
-```     >_ USE bd_vanessa;``` <br> 
-
-2 Pasamos el archivo a la carpeta  /mysql 
-
-3 Adicionamos en el archivo /mysql/Dockerfile 
-```     >_ COPY student-mat.sql /docker-entrypoint-initdb.d/    ``` <br> 
-
-4 Recreamos la imagen de mysql 
-```     >_ docker compose down mysql``` <br> 
-```     >_ docker compose up -d --build mysql``` <br> 
-
-5 Guardamos los cambios realizados en GIT 
-
-```     >_git add . && git commit -m "update" && git push origin master ``` <br> 
