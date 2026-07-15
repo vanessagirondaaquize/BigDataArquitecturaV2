@@ -1,7 +1,16 @@
 # LABORATORIO 2 ARQUITECTURA DATALAKE 
 ## Prerequisitos 
 # 1.- Actualizar cambios de repositorio
-Click en el repositorio , click en commit ahead o sync fork 
+1. Click en el repositorio , click en commit ahead o sync fork 
+2. Entrar al codespace 
+3. Instalar la extendsion de DOCKER EXPLORER
+4. Abrir terminal de codespace
+   ```    >git fetch origin     ``` <br>
+   ```    >git reset --hard origin/master     ``` <br>
+   
+5. Ejecutar el siguiente comando para desplegar los contenedores<br>
+```    >docker compose -f docker-compose-hive.yml up     ``` <br>
+
 Validar la practica 2_PracticaIngesta-Hive
 Validar la archivo docker-compose-hive.yml
 # 2 Mysql
