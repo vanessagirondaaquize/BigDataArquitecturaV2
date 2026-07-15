@@ -1,5 +1,10 @@
-# LABORATORIO 2 SQOOP HIVE
-## MySQL
+# LABORATORIO 2 ARQUITECTURA DATALAKE 
+## Prerequisitos 
+# 1.- Actualizar cambios de repositorio
+Click en el repositorio , click en commit ahead o sync fork 
+Validar la practica 2_PracticaIngesta-Hive
+Validar la archivo docker-compose-hive.yml
+# 2 Mysql
 Este contenedor contiene una base de datos llamada retail_db y consta de las siguientes tablas: <br>
 - customers
 - orders
@@ -17,9 +22,11 @@ pass: root
 port: 3310
 <br>
 Ejecutar ifconfig en terminal para obtener la ip (eth0)
+# 3.- Docker Hive
+Validar los serviciso de la arquitectura 
 
 # CAPA INGESTA / RAW /LANDING 
-## Hadoop
+## A. Hadoop
 ### Entrar a un contenedor "datanode"  -> docker exec -it xxxx bash
 Para poder trabajar con hadoop ingresamos al contenedor del datanode. <br>
 Abrimos un terminal nuevo y ejecutamos lo siguiente
@@ -37,7 +44,7 @@ Para exportar las tabla de la base de datos retail con sqoop ejecutar lo siguien
 ```     >_ hdfs dfs -put *.avsc /user/datapath/datasets/avro/     ```
 
 # CAPA PROCESAMIENTO / CLEANSED / TRUSTED
-## A . Hive
+## B . Hive
 Para poder trabajar con hive ingresamos al contenedor del hive-server. <br>
 
 Abrir un terminal y copiar el archivo hive.hql a hive-server<br> 
