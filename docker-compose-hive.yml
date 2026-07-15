@@ -111,6 +111,16 @@ services:
     networks:
       net_pet:
         ipv4_address: 172.27.1.9
+        
+ adminer:
+   image: adminer
+   container_name: adminer
+   restart: always
+   ports:
+     - "8085:8080"   # Puerto que usarás para abrir en el navegador
+   networks:
+     net_pet:
+       ipv4_address: 172.27.1.20
 
   zookeeper:
     image: wurstmeister/zookeeper
